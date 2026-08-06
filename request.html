@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オフィスに依頼する — DCL AI Office</title>
+<style>
+:root{--brand:#eb5000;--brand2:#facd00;--ink:#1c1917;--mut:#78716c;--line:#e7e5e4;--bg:#faf9f7;--card:#fff;}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+.hero{background:linear-gradient(115deg,#eb5000,#ff7a1a 46%,#facd00);color:#fff;padding:34px 20px 28px;text-align:center;position:relative}
+.hero a.back{position:absolute;left:16px;top:18px;font-size:13px;color:#fff;text-decoration:none;background:rgba(255,255,255,.18);padding:6px 12px;border-radius:99px}
+.hero h1{margin:0 0 4px;font-size:24px}.hero p{margin:0;opacity:.95;font-size:14px}
+.wrap{max-width:720px;margin:0 auto;padding:24px 18px 80px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 22px rgba(80,50,10,.06)}
+label{display:block;font-weight:700;font-size:13px;margin:14px 0 5px}
+label .opt{color:var(--mut);font-weight:400;font-size:12px}
+input[type=text],select,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff}
+textarea{min-height:88px;resize:vertical}
+.teams{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.teams label{display:inline-flex;align-items:center;gap:6px;margin:0;font-weight:600;font-size:13px;background:#faf7f2;border:1px solid var(--line);border-radius:99px;padding:7px 12px;cursor:pointer}
+.teams input{accent-color:var(--brand)}
+.btn{margin-top:20px;width:100%;border:none;cursor:pointer;font:inherit;font-weight:800;color:#fff;background:linear-gradient(120deg,#f2861f,#e35d12);padding:13px;border-radius:12px;box-shadow:0 6px 16px rgba(226,93,18,.28)}
+.btn:hover{filter:brightness(1.04)}
+.out{margin-top:22px;display:none}
+.out.show{display:block}
+.out textarea{min-height:200px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:#1c1917;color:#f7efe0;border-color:#3a332b}
+.row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.copy{border:none;cursor:pointer;font:inherit;font-weight:700;color:var(--brand);background:#fff3e9;border-radius:99px;padding:9px 16px}
+.hint{font-size:12.5px;color:var(--mut)}
+.step{font-size:12px;color:var(--mut);background:#f5f5f4;border-radius:10px;padding:12px 14px;margin-top:14px}
+.step b{color:var(--ink)}
+</style></head>
+<body>
+<div class="hero">
+  <a class="back" href="index.html">← ダッシュボード</a>
+  <h1>📥 オフィスに依頼する</h1>
+  <p>アカウントと指示を入力 → 依頼文を作成 → Claude Code に貼り付けでオフィス稼働</p>
+</div>
+<div class="wrap">
+  <div class="card">
+    <label>対象アカウント <span class="opt">（@ハンドル または ライバー名）*</span></label>
+    <input type="text" id="account" placeholder="@example_liver">
+    <label>プラットフォーム</label>
+    <select id="platform"><option>TikTok LIVE</option><option>Pococha</option><option>その他</option></select>
+    <label>ジャンル <span class="opt">（雑談 / 歌 / ゲーム / ペット など）</span></label>
+    <input type="text" id="genre" placeholder="雑談・歌">
+    <label>目的・ゴール <span class="opt">（何を達成したい？）</span></label>
+    <input type="text" id="goal" placeholder="ショート→LIVEの新規流入を増やす">
+    <label>実数・現状 <span class="opt">（フォロワー / 平均再生 / 投稿頻度 / LIVE同接・新規流入 / 視聴者層 など、分かる範囲）</span></label>
+    <textarea id="metrics" placeholder="フォロワー1.2万 / ショート平均3,000再生 / 投稿は不定期 / LIVE平均同接15・新規流入少なめ / 視聴者は20-30代女性中心"></textarea>
+    <label>動かすチーム</label>
+    <div class="teams">
+      <label><input type="checkbox" id="allteams" checked>全チーム</label>
+      <label><input type="checkbox" class="team" value="トレンド市場調査">🔍 トレンド</label>
+      <label><input type="checkbox" class="team" value="アカウント分析">📊 分析</label>
+      <label><input type="checkbox" class="team" value="企画提案">💡 企画</label>
+      <label><input type="checkbox" class="team" value="投稿文＋#作成">✍️ 投稿文＋#</label>
+      <label><input type="checkbox" class="team" value="振り返り分析">🔁 振り返り</label>
+    </div>
+    <label>その他メモ <span class="opt">（本人の強み・課題・直近施策・出したいイベント など）</span></label>
+    <textarea id="memo" placeholder="トリミング動画が好評 / 固定ファンは強いが新規が弱い / 来月のイベントに出したい"></textarea>
+    <button class="btn" id="gen">📝 依頼文を作成する</button>
+  </div>
+
+  <div class="out card" id="out">
+    <label>生成された依頼文</label>
+    <textarea id="txt" readonly></textarea>
+    <div class="row">
+      <button class="copy" id="copy">📋 コピー</button>
+      <span class="hint" id="copmsg">このテキストをコピーしてください</span>
+    </div>
+    <div class="step"><b>使い方：</b>コピーした依頼文を <b>Claude Code</b> のチャットに貼り付けて送信すると、<b>ai-office スキル</b>が発火してオフィスが稼働し、成果がダッシュボードに蓄積されます。</div>
+  </div>
+</div>
+<script>
+var allc=document.getElementById('allteams');
+var teamCbs=[].slice.call(document.querySelectorAll('.team'));
+allc.addEventListener('change',function(){ if(allc.checked) teamCbs.forEach(function(c){c.checked=false;}); });
+teamCbs.forEach(function(c){ c.addEventListener('change',function(){ if(teamCbs.some(function(x){return x.checked;})) allc.checked=false; else allc.checked=true; }); });
+function val(id){ return (document.getElementById(id).value||'').trim(); }
+document.getElementById('gen').addEventListener('click',function(){
+  var acc=val('account');
+  if(!acc){ alert('対象アカウントを入力してください'); return; }
+  var picked=teamCbs.filter(function(c){return c.checked;}).map(function(c){return c.value;});
+  var teamStr=(allc.checked||picked.length===0)?'全チーム':picked.join('・');
+  var t='オフィス稼働\n\n';
+  t+='■ 対象アカウント: '+acc+'\n';
+  t+='■ プラットフォーム: '+val('platform')+'\n';
+  if(val('genre')) t+='■ ジャンル: '+val('genre')+'\n';
+  if(val('goal'))  t+='■ 目的・ゴール: '+val('goal')+'\n';
+  t+='■ 動かすチーム: '+teamStr+'\n';
+  if(val('metrics')) t+='■ 実数・現状:\n'+val('metrics')+'\n';
+  if(val('memo'))    t+='■ メモ:\n'+val('memo')+'\n';
+  document.getElementById('txt').value=t;
+  document.getElementById('out').classList.add('show');
+  document.getElementById('txt').scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.getElementById('copy').addEventListener('click',function(){
+  var ta=document.getElementById('txt'); ta.select();
+  function done(){ document.getElementById('copmsg').textContent='✓ コピーしました。Claude Code に貼り付けてください'; }
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(ta.value).then(done,function(){document.execCommand('copy');done();}); }
+  else { document.execCommand('copy'); done(); }
+});
+</script>
+</body></html>
