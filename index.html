@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DCL AI Office</title>
+<style>
+:root { --brand:#eb5000; --brand2:#facd00; --ink:#1c1917; --mut:#78716c;
+  --line:#e7e5e4; --bg:#faf9f7; --card:#ffffff; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.7; -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 20px 80px; }
+.hero { background:linear-gradient(115deg,#eb5000 0%,#ff7a1a 46%,#facd00 100%); color:#fff; padding:46px 20px 40px; text-align:center; }
+.hero h1 { margin:0 0 8px; font-size:30px; letter-spacing:.02em; }
+.hero p { margin:0; opacity:.95; font-size:15px; }
+.hero .back { display:inline-block; margin-bottom:14px; font-size:13px; opacity:.9; text-decoration:none;
+  background:rgba(255,255,255,.18); padding:5px 12px; border-radius:99px; }
+.section-title { font-size:13px; font-weight:700; letter-spacing:.08em; color:var(--mut);
+  text-transform:uppercase; margin:44px 0 16px; }
+
+.kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:8px; }
+.kpi { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 16px; text-align:center; }
+.kpi .n { font-size:34px; font-weight:800; line-height:1; color:var(--brand); }
+.kpi .l { font-size:12px; color:var(--mut); margin-top:8px; }
+.floor { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.room { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 18px 16px;
+  border-top:5px solid var(--rc); display:flex; flex-direction:column; }
+.room h3 { margin:2px 0 2px; font-size:17px; }
+.room .role { font-size:12px; color:var(--mut); margin-bottom:12px; }
+.room .emoji { font-size:22px; }
+.members { list-style:none; padding:0; margin:0 0 12px; }
+.members li { display:flex; gap:8px; align-items:baseline; padding:5px 0; border-top:1px dashed var(--line); font-size:13px; }
+.members li:first-child { border-top:none; }
+.members .mn { font-weight:700; white-space:nowrap; }
+.members .mj { color:var(--mut); font-size:12px; }
+.badge { align-self:flex-start; font-size:11px; font-weight:700; color:#fff; background:var(--rc);
+  padding:3px 10px; border-radius:99px; margin-top:auto; }
+.snip { font-size:12.5px; color:var(--mut); background:#faf7f2; border-radius:10px; padding:10px 12px; margin:10px 0 12px; }
+.cases { display:flex; flex-direction:column; gap:12px; }
+.caserow { display:block; text-decoration:none; background:var(--card); border:1px solid var(--line);
+  border-radius:14px; padding:16px 18px; transition:.15s; }
+.caserow:hover { border-color:var(--brand); box-shadow:0 6px 20px rgba(235,80,0,.08); transform:translateY(-1px); }
+.caserow .d { font-size:12px; color:var(--mut); }
+.caserow .t { font-weight:700; font-size:16px; margin:2px 0 4px; }
+.caserow .g { font-size:13px; color:var(--mut); }
+.caserow .chips { margin-top:8px; }
+.chip { display:inline-block; font-size:11px; color:var(--brand); background:#fff3e9;
+  border-radius:99px; padding:2px 9px; margin-right:6px; }
+.empty { color:var(--mut); background:var(--card); border:1px dashed var(--line); border-radius:14px; padding:28px; text-align:center; }
+.caseitem { display:flex; flex-direction:column; }
+.chatlink { align-self:flex-start; margin:6px 0 0 4px; font-size:12.5px; color:var(--brand); text-decoration:none; font-weight:700; }
+.chatlink:hover { text-decoration:underline; }
+.office-link { display:inline-block; margin-top:16px; background:#fff; color:var(--brand); font-weight:700; font-size:14px;
+  text-decoration:none; padding:11px 22px; border-radius:99px; box-shadow:0 8px 22px rgba(0,0,0,.14); transition:.15s; }
+.office-link:hover { transform:translateY(-1px); }
+@media(max-width:820px){ .floor{grid-template-columns:1fr;} .kpis{grid-template-columns:repeat(2,1fr);} }
+
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🏢 DCL AI Office</h1>
+  <p>TikTok LIVE マネジメント × ショート動画投稿サポート</p>
+  <a class="office-link" href="office.html">🏢 バーチャルオフィスでAIの稼働を見る →</a>
+</div>
+<div class="wrap">
+
+  <div class="section-title">累積データ</div>
+  <div class="kpis">
+    <div class="kpi"><div class="n">2</div><div class="l">稼働案件数</div></div>
+    <div class="kpi"><div class="n">7</div><div class="l">生成した企画数</div></div>
+    <div class="kpi"><div class="n">6</div><div class="l">作成した投稿文数</div></div>
+    <div class="kpi"><div class="n">30</div><div class="l">設計したハッシュタグ数</div></div>
+  </div>
+
+  <div class="section-title">オフィス見取り図 ・ 6ユニット / 18名</div>
+  <div class="floor">
+    <div class="room" style="--rc:#6d28d9">
+      <div class="emoji">🏛</div>
+      <h3>社長室</h3>
+      <div class="role">全体統括・意思決定・記録</div>
+      <ul class="members"><li><span class="mn">社長</span><span class="mj">CEO — 案件のゴール設定と全体総括、各チーム成果の統合、最終GOの決定。</span></li><li><span class="mn">参謀</span><span class="mj">Chief of Staff — 論点整理、チーム間の交通整理、リスクと抜け漏れの指摘。</span></li><li><span class="mn">秘書</span><span class="mj">Secretary — 議事と成果の記録、ダッシュボードへの保存、進捗管理。</span></li></ul>
+      <div class="snip">最新案件より：最優先は『こむぎのキャラ固定（毎回同じ導入）＋1本1オチ』の徹底と、火/金21時のTikTok LIVE固定。まずトリミングBefore/Afterと“待て”オチで初速を作り、LIVE予告動画→プロフ通知ONでLIVEへ送客する。※現状は実数未提供の推定ベースのため、フォロワー・平均再生・LIVE指標を頂き次第、アカウント分析と振り返りを実数で精緻化する。</div>
+      <div class="badge">社長 他2名</div>
+    </div>
+    <div class="room" style="--rc:#eb5000">
+      <div class="emoji">🔍</div>
+      <h3>トレンド市場調査チーム</h3>
+      <div class="role">市場・トレンドの把握</div>
+      <ul class="members"><li><span class="mn">リサーチャー</span><span class="mj">Trend Researcher — バズ音源・フォーマット・話題・急上昇ハッシュタグの把握。</span></li><li><span class="mn">カルチャー分析官</span><span class="mj">Culture Analyst — なぜ流行っているのか（視聴者心理・文脈）の言語化。</span></li><li><span class="mn">競合ウォッチャー</span><span class="mj">Competitor Watcher — 同ジャンル・競合ライバーの直近の勝ち筋の観察。</span></li></ul>
+      <div class="snip">最新案件より：ペット系ショートは『表情ドアップ×飼い主目線の一言字幕』＋“1本1オチ”が継続的に強い</div>
+      <div class="badge">リサーチャー 他2名</div>
+    </div>
+    <div class="room" style="--rc:#1668c9">
+      <div class="emoji">📊</div>
+      <h3>アカウント分析チーム</h3>
+      <div class="role">自アカウントの現状診断</div>
+      <ul class="members"><li><span class="mn">データアナリスト</span><span class="mj">Data Analyst — 実数（再生数・視聴維持率・フォロワー推移・LIVE指標）の読解。</span></li><li><span class="mn">強み弱み診断官</span><span class="mj">SWOT Diagnostician — アカウントの現状ポジション・強み・弱みの診断。</span></li><li><span class="mn">視聴者インサイト担当</span><span class="mj">Audience Insight — ファン層・視聴動機・離脱ポイントの推定。</span></li></ul>
+      <div class="snip">最新案件より：強みは『マルチプーの映えるビジュアル＋名前(こむぎ)の覚えやすさ』、弱みは『LIVE導線と投稿リズム』（推定）</div>
+      <div class="badge">データアナリスト 他2名</div>
+    </div>
+    <div class="room" style="--rc:#059669">
+      <div class="emoji">💡</div>
+      <h3>企画提案チーム</h3>
+      <div class="role">ショート動画とLIVE導線の企画</div>
+      <ul class="members"><li><span class="mn">企画リーダー</span><span class="mj">Creative Lead — 全体コンセプトとシリーズ設計。</span></li><li><span class="mn">ショート動画プランナー</span><span class="mj">Short Planner — 具体的な動画案（フック・構成・尺）の立案。</span></li><li><span class="mn">LIVE導線設計</span><span class="mj">LIVE Funnel Designer — ショート→LIVEへの送客導線・配信ネタの設計。</span></li></ul>
+      <div class="snip">最新案件より：『こむぎ』のキャラ固定＋1本1オチ＋週次TikTok LIVE(火/金21時)でファン化と送客を回す1週間設計</div>
+      <div class="badge">企画リーダー 他2名</div>
+    </div>
+    <div class="room" style="--rc:#d946a6">
+      <div class="emoji">✍️</div>
+      <h3>投稿文＋#作成チーム</h3>
+      <div class="role">キャプションとハッシュタグの作成</div>
+      <ul class="members"><li><span class="mn">コピーライター</span><span class="mj">Copywriter — キャプション本文（冒頭フック文）の執筆。</span></li><li><span class="mn">ハッシュタグ戦略官</span><span class="mj">Hashtag Strategist — 大中小ミックスのハッシュタグ設計。</span></li><li><span class="mn">CTA誘導担当</span><span class="mj">CTA Editor — コメント喚起・保存/シェア/フォロー誘導文の作成。</span></li></ul>
+      
+      <div class="badge">コピーライター 他2名</div>
+    </div>
+    <div class="room" style="--rc:#ca8a04">
+      <div class="emoji">🔁</div>
+      <h3>振り返り分析チーム</h3>
+      <div class="role">成果検証とナレッジ蓄積</div>
+      <ul class="members"><li><span class="mn">成果検証官</span><span class="mj">Performance Auditor — 施策の想定KPIと実績の突合（前回データがあれば比較）。</span></li><li><span class="mn">改善提案官</span><span class="mj">Improvement Advisor — 次アクションに向けた改善点の提示。</span></li><li><span class="mn">ナレッジ管理官</span><span class="mj">Knowledge Keeper — 学びの型化とナレッジへの蓄積。</span></li></ul>
+      <div class="snip">最新案件より：検証観点：『1本1オチ＋固定導入＋週次LIVE』で保存率とLIVE新規流入が動くか</div>
+      <div class="badge">成果検証官 他2名</div>
+    </div>
+  </div>
+
+  <div class="section-title">案件ログ</div>
+  <div class="cases">
+    <div class="caseitem">
+      <a class="caserow" href="case-2026-08-05-maltipoo-komugi.html">
+        <div class="d">2026-08-05 ・ @maltipoo_komugi</div>
+        <div class="t">マルチプー『こむぎ』のショート強化＋TikTok LIVEデビュー設計</div>
+        <div class="g">🎯 犬キャラ『こむぎ』のファン化を進め、ショートからTikTok LIVEへの新規流入と再訪を作る</div>
+        <div class="chips"><span class="chip">企画 4</span><span class="chip">投稿文 3</span><span class="chip"># 15</span></div>
+      </a>
+      <a class="chatlink" href="case-2026-08-05-maltipoo-komugi.html#chat-shacho">💬 議論ログ 41発言 →</a>
+    </div>
+    <div class="caseitem">
+      <a class="caserow" href="case-2026-08-05-sample.html">
+        <div class="d">2026-08-05 ・ @sample_liver <span class="chip">サンプル</span></div>
+        <div class="t">【サンプル】雑談系ライバーのショート→LIVE送客テコ入れ</div>
+        <div class="g">🎯 ショート動画からLIVEへの新規流入を増やし、初見リスナーの定着率を上げる</div>
+        <div class="chips"><span class="chip">企画 3</span><span class="chip">投稿文 3</span><span class="chip"># 15</span></div>
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+<div class="wrap" style="text-align:center;color:var(--mut);font-size:12px;margin-top:56px;">
+  最終更新: 2026-08-06 11:27 JST ・ DCL AI Office
+</div>
+</body></html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【サンプル】雑談系ライバーのショート→LIVE送客テコ入れ — DCL AI Office</title>
+<style>
+:root { --brand:#eb5000; --brand2:#facd00; --ink:#1c1917; --mut:#78716c;
+  --line:#e7e5e4; --bg:#faf9f7; --card:#ffffff; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.7; -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 20px 80px; }
+.hero { background:linear-gradient(115deg,#eb5000 0%,#ff7a1a 46%,#facd00 100%); color:#fff; padding:46px 20px 40px; text-align:center; }
+.hero h1 { margin:0 0 8px; font-size:30px; letter-spacing:.02em; }
+.hero p { margin:0; opacity:.95; font-size:15px; }
+.hero .back { display:inline-block; margin-bottom:14px; font-size:13px; opacity:.9; text-decoration:none;
+  background:rgba(255,255,255,.18); padding:5px 12px; border-radius:99px; }
+.section-title { font-size:13px; font-weight:700; letter-spacing:.08em; color:var(--mut);
+  text-transform:uppercase; margin:44px 0 16px; }
+
+.card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px 22px 18px;
+  margin-bottom:16px; border-left:6px solid var(--rc); }
+.card .htag { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+.card .htag .e { font-size:22px; }
+.card .htag .nm { font-weight:800; font-size:17px; }
+.card .htag .mm { font-size:11.5px; color:var(--mut); }
+.card h4 { margin:8px 0 10px; font-size:16px; }
+.card ul { margin:0; padding-left:20px; }
+.card li { margin:5px 0; }
+.goalbox { background:#fff3e9; border:1px solid #ffd9b8; border-radius:14px; padding:16px 18px; margin-bottom:8px; }
+.goalbox .lab { font-size:11px; font-weight:700; color:var(--brand); letter-spacing:.06em; }
+.inp { background:#f5f5f4; border-radius:12px; padding:14px 16px; font-size:13px; color:#57534e; margin-top:10px; }
+.idea { border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:8px 0; }
+.idea .it { font-weight:700; }
+.idea .meta { font-size:12px; color:var(--mut); margin-top:2px; }
+.idea .hk { font-size:13px; margin-top:6px; }
+.cap { border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+.cap .body { font-size:14.5px; font-weight:600; }
+.cap .tags { margin-top:8px; }
+.cap .tags span { display:inline-block; font-size:12px; color:#1668c9; background:#eef5fd;
+  border-radius:8px; padding:2px 8px; margin:3px 4px 0 0; }
+.cap .cta { font-size:12.5px; color:var(--mut); margin-top:8px; }
+.ceo { background:linear-gradient(120deg,#f5efff,#fff); border:1px solid #e3d6ff; }
+.chat { margin-top:14px; }
+.chat summary { cursor:pointer; font-size:12px; font-weight:700; color:var(--rc); list-style:none;
+  padding:6px 12px; background:#faf7f2; border:1px solid var(--line); border-radius:99px; display:inline-block; }
+.chat summary::-webkit-details-marker { display:none; }
+.chat summary::before { content:"▸ "; }
+.chat[open] summary::before { content:"▾ "; }
+.chat[open] summary { margin-bottom:10px; }
+.chat .log { border-left:2px solid var(--line); padding-left:14px; margin-left:4px; }
+.chat .turn { margin:9px 0; }
+.chat .who { font-size:11px; font-weight:800; color:var(--rc); margin-bottom:3px; }
+.chat .msg { background:#f6f1ea; border-radius:12px 12px 12px 3px; padding:8px 12px; font-size:12.5px;
+  line-height:1.55; color:#3a332b; display:inline-block; max-width:92%; }
+.jumpbar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:6px 0 4px; }
+.jumpbar .jl { font-size:12px; font-weight:700; color:var(--mut); }
+.jumpbar a.jump { font-size:12px; text-decoration:none; color:var(--ink); background:var(--card);
+  border:1px solid var(--line); border-radius:99px; padding:5px 11px; transition:.15s; }
+.jumpbar a.jump:hover { border-color:var(--brand); color:var(--brand); }
+details.chat:target { outline:2px solid var(--brand); outline-offset:4px; border-radius:6px; }
+.openall { font-size:12px; color:var(--brand); background:none; border:1px solid var(--line); border-radius:99px;
+  padding:6px 14px; cursor:pointer; font-weight:700; }
+
+</style>
+</head>
+<body>
+<div class="hero">
+  <a class="back" href="index.html">← オフィスに戻る</a>
+  <h1>【サンプル】雑談系ライバーのショート→LIVE送客テコ入れ</h1>
+  <p>2026-08-05 ・ @sample_liver</p>
+</div>
+<div class="wrap">
+  <div class="goalbox">
+    <div class="lab">🎯 案件のゴール</div>
+    <div>ショート動画からLIVEへの新規流入を増やし、初見リスナーの定着率を上げる</div>
+    <div class="inp"><b>元データ:</b> 20代女性・雑談/歌系のTikTok LIVEライバー。フォロワー1.2万、ショート平均再生3,000、直近LIVE平均同接15・新規流入が少ない。ショートは投稿頻度が不定期。</div>
+  </div>
+  <div class="card ceo" style="--rc:#6d28d9">
+    <div class="htag"><span class="e">🏛</span>
+      <span class="nm">社長室</span>
+      <span class="mm">社長・参謀・秘書</span></div>
+    <h4>総括 / 最終GO</h4>
+    <p>最優先は『投稿と配信のリズム化』。火/金21時LIVEを固定し、ショートを予告と余韻で挟む1週間パッケージでGO。1週間後に実数を持ち寄り、振り返りチームで新規流入率と開始5分定着率を検証する。</p>
+  </div>
+  <div class="card" style="--rc:#eb5000">
+    <div class="htag"><span class="e">🔍</span><span class="nm">トレンド市場調査チーム</span><span class="mm">リサーチャー・カルチャー分析官・競合ウォッチャー</span></div>
+    <h4>『日常の切り取り×本音トーク』フォーマットが継続的に伸びている</h4>
+    <ul><li>リップシンクより“素の会話・本音の一言”を字幕で見せるショートが伸びやすい局面</li><li>冒頭2秒で『問い』を提示するフック（例：〇〇な人だけ見て）が視聴維持に効く</li><li>音源はトレンド曲より“会話が聞こえる小音量BGM”の方が雑談ライバーとは相性良</li></ul>
+  </div>
+  <div class="card" style="--rc:#1668c9">
+    <div class="htag"><span class="e">📊</span><span class="nm">アカウント分析チーム</span><span class="mm">データアナリスト・強み弱み診断官・視聴者インサイト</span></div>
+    <h4>強みは『声・キャラの親しみやすさ』、弱みは『初見が入る入口の細さ』</h4>
+    <ul><li>ショート平均3,000再生は母数として十分。ただしプロフィール→LIVE導線が弱い</li><li>LIVE同接15はコア中心。新規流入が少なく、離脱は開始5分に集中と推定</li><li>投稿頻度が不定期＝アルゴリズムに拾われづらい。週次のリズム化が最優先</li></ul>
+  </div>
+  <div class="card" style="--rc:#059669">
+    <div class="htag"><span class="e">💡</span><span class="nm">企画提案チーム</span><span class="mm">企画リーダー・ショート動画プランナー・LIVE導線設計</span></div>
+    <h4>『毎週火/金 21時LIVE』を軸に、ショートを“予告と余韻”で挟む1週間設計</h4>
+    <div class="idea"><div class="it">📹 LIVE前フリ：今夜話すテーマを問いかけ</div><div class="meta">縦型・字幕・15秒 ・ 15秒</div><div class="hk">フック: 「今夜のLIVEで〇〇について本音で話します（コメントで質問募集）」</div></div>
+    <div class="idea"><div class="it">📹 LIVE名場面の切り抜き</div><div class="meta">会話＋字幕・BGM小音量 ・ 25秒</div><div class="hk">フック: 「昨日のLIVEでリスナーとこうなった話」</div></div>
+    <div class="idea"><div class="it">📹 素の一言・日常の切り取り</div><div class="meta">ワンカット・字幕フック ・ 12秒</div><div class="hk">フック: 「〇〇な人だけ見てほしい」</div></div>
+  </div>
+  <div class="card" style="--rc:#d946a6">
+    <div class="htag"><span class="e">✍️</span><span class="nm">投稿文＋#作成チーム</span><span class="mm">コピーライター・ハッシュタグ戦略官・CTA誘導</span></div>
+    <div class="cap"><div class="body">今夜21時、〇〇について本音で話します。質問はコメントで待ってます🌙</div><div class="tags"><span>#TikTokLIVE</span><span>#ライブ配信</span><span>#雑談配信</span><span>#今夜配信</span><span>#質問募集</span></div><div class="cta">💬 気になる人はプロフからLIVE通知ONにしてね</div></div>
+    <div class="cap"><div class="body">昨日のLIVE、リスナーさんとまさかの展開に…（続きは概要へ）</div><div class="tags"><span>#切り抜き</span><span>#ライブ配信</span><span>#TikTokLIVE</span><span>#雑談</span><span>#エモい</span></div><div class="cta">💬 この続き気になる人はコメントで教えて</div></div>
+    <div class="cap"><div class="body">〇〇な人だけ見てほしい30秒。</div><div class="tags"><span>#日常</span><span>#本音</span><span>#共感</span><span>#fyp</span><span>#おすすめにのりたい</span></div><div class="cta">💬 当てはまった人は保存してあとで見返してね</div></div>
+  </div>
+  <div class="card" style="--rc:#ca8a04">
+    <div class="htag"><span class="e">🔁</span><span class="nm">振り返り分析チーム</span><span class="mm">成果検証官・改善提案官・ナレッジ管理官</span></div>
+    <h4>検証観点：週次リズム化で『新規流入率』と『開始5分定着率』が動くか</h4>
+    <ul><li>想定KPI：ショート→プロフ遷移率、LIVE新規流入数、開始5分残存率</li><li>1週間後に同フォーマットで実数を貼れば、成果検証官が前回比を自動で突合</li><li>学び：フック文『〇〇な人だけ見て』系の維持率を型としてナレッジ蓄積</li></ul>
+  </div>
+</div>
+<script>
+(function(){
+  function openHash(){var h=location.hash;if(!h)return;var el=document.querySelector(h);
+    if(el&&el.tagName==='DETAILS'){el.open=true;el.scrollIntoView({behavior:'smooth',block:'center'});}}
+  var btn=document.getElementById('openAll');
+  if(btn){var open=false;btn.addEventListener('click',function(){open=!open;
+    document.querySelectorAll('details.chat').forEach(function(d){d.open=open;});
+    btn.textContent=open?'すべて閉じる':'すべて開く';});}
+  window.addEventListener('hashchange',openHash);setTimeout(openHash,60);
+})();
+</script>
+
+<div class="wrap" style="text-align:center;color:var(--mut);font-size:12px;margin-top:56px;">
+  最終更新: 2026-08-06 11:27 JST ・ DCL AI Office
+</div>
+</body></html>
